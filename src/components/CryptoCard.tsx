@@ -1,0 +1,93 @@
+import React from 'react';
+import { Cryptocurrency } from '../types/crypto';
+import { TrendingUp, TrendingDown } from 'lucide-react';
+
+interface CryptoCardProps {
+  crypto: Cryptocurrency;
+}
+
+const CryptoCard: React.FC<CryptoCardProps> = ({ crypto }) => {
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: price < 1 ? 6 : 2,
+    }).format(price);
+  };
+
+  const formatMarketCap = (marketCap: number) => {
+    if (marketCap >= 1e12) {
+      return `$${(marketCap / 1e12).toFixed(2)}T`;
+    } else if (marketCap >= 1e9) {
+      return `$${(marketCap / 1e9).toFixed(2)}B`;
+    } else if (marketCap >= 1e6) {
+      return `$${(marketCap / 1e6).toFixed(2)}M`;
+    }
+    return `$${marketCap.toLocaleString()}`;
+  };
+
+  const formatVolume = (volume: number) => {
+    if (volume >= 1e9) {
+      return `$${(volume / 1e9).toFixed(2)}B`;
+    } else if (volume >= 1e6) {
+      return `$${(volume / 1e6).toFixed(2)}M`;
+    }
+    return `$${volume.toLocaleString()}`;
+  };
+
+  const priceChange = crypto.price_change_percentage_24h;
+  const isPositive = priceChange >= 0;
+
+  return (
+    <div className="bg-white/90 backdrop-blur-xl rounded-xl border border-gray-200/50 p-5 hover:border-gray-300/50 hover:bg-white transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-xl group">
+      <div className="flex items-center space-x-4 mb-5">
+        <img
+          src={crypto.image}
+          alt={crypto.name}
+          className="w-12 h-12 rounded-full ring-2 ring-gray-100 group-hover:ring-gray-200 transition-all duration-300"
+          loading="lazy"
+        />
+        <div className="flex-1">
+          <h3 className="font-bold text-gray-900 text-base font-poppins leading-tight">{crypto.name}</h3>
+          <div className="flex items-center space-x-2 mt-1">
+            <p className="text-gray-500 text-sm uppercase font-semibold tracking-wider">{crypto.symbol}</p>
+            <span className="text-gray-300">•</span>
+            <span className="text-xs text-gray-400 font-medium">Rank #{crypto.market_cap_rank}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-4">
+        <div className="text-center py-4 bg-gradient-to-r from-gray-50/80 to-blue-50/30 rounded-xl border border-gray-100">
+          <p className="text-2xl font-bold text-gray-900 mb-2 font-poppins">{formatPrice(crypto.current_price)}</p>
+          <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-sm font-bold border ${
+            isPositive 
+              ? 'bg-green-50 text-green-700 border-green-200' 
+              : 'bg-red-50 text-red-700 border-red-200'
+          }`}>
+            {isPositive ? (
+              <TrendingUp className="h-4 w-4 mr-1.5" />
+            ) : (
+              <TrendingDown className="h-4 w-4 mr-1.5" />
+            )}
+            {isPositive ? '+' : ''}{priceChange.toFixed(2)}%
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div className="text-center p-3 bg-gray-50/80 rounded-lg border border-gray-100">
+            <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Market Cap</p>
+            <p className="font-bold text-gray-900 text-sm font-poppins">{formatMarketCap(crypto.market_cap)}</p>
+          </div>
+          <div className="text-center p-3 bg-gray-50/80 rounded-lg border border-gray-100">
+            <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Volume 24h</p>
+            <p className="font-bold text-gray-900 text-sm font-poppins">{formatVolume(crypto.total_volume)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CryptoCard;
