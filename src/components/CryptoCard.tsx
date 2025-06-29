@@ -63,16 +63,16 @@ const CryptoCard: React.FC<CryptoCardProps> = ({ crypto }) => {
           )}
           {imageError && (
             <div className="w-12 h-12 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center ring-2 ring-gray-100 group-hover:ring-gray-200 transition-all duration-300">
-              <span className="text-white font-bold text-sm">
+              <span className="text-white font-bold text-sm font-space">
                 {crypto.symbol.substring(0, 2).toUpperCase()}
               </span>
             </div>
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-gray-900 text-base font-poppins leading-tight truncate">{crypto.name}</h3>
+          <h3 className="font-bold text-gray-900 text-base font-space leading-tight truncate">{crypto.name}</h3>
           <div className="flex items-center space-x-2 mt-1">
-            <p className="text-gray-500 text-sm uppercase font-semibold tracking-wider">{crypto.symbol}</p>
+            <p className="text-gray-500 text-sm uppercase font-semibold tracking-wider font-space">{crypto.symbol}</p>
             <span className="text-gray-300">•</span>
             <span className="text-xs text-gray-400 font-medium">Rank #{crypto.market_cap_rank}</span>
           </div>
@@ -81,8 +81,8 @@ const CryptoCard: React.FC<CryptoCardProps> = ({ crypto }) => {
 
       <div className="space-y-4">
         <div className="text-center py-4 bg-gradient-to-r from-gray-50/80 to-teal-50/30 rounded-xl border border-gray-100">
-          <p className="text-2xl font-bold text-gray-900 mb-2 font-poppins">{formatPrice(crypto.current_price)}</p>
-          <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-sm font-bold border transition-all duration-300 ${
+          <p className="text-2xl font-bold text-gray-900 mb-2 font-space">{formatPrice(crypto.current_price)}</p>
+          <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-sm font-bold border transition-all duration-300 font-space ${
             isPositive 
               ? 'bg-green-50 text-green-700 border-green-200' 
               : 'bg-red-50 text-red-700 border-red-200'
@@ -98,12 +98,12 @@ const CryptoCard: React.FC<CryptoCardProps> = ({ crypto }) => {
 
         <div className="grid grid-cols-2 gap-3">
           <div className="text-center p-3 bg-gray-50/80 rounded-lg border border-gray-100">
-            <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Market Cap</p>
-            <p className="font-bold text-gray-900 text-sm font-poppins">{formatMarketCap(crypto.market_cap)}</p>
+            <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2 font-space">Market Cap</p>
+            <p className="font-bold text-gray-900 text-sm font-space">{formatMarketCap(crypto.market_cap)}</p>
           </div>
           <div className="text-center p-3 bg-gray-50/80 rounded-lg border border-gray-100">
-            <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">Volume 24h</p>
-            <p className="font-bold text-gray-900 text-sm font-poppins">{formatVolume(crypto.total_volume)}</p>
+            <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2 font-space">Volume 24h</p>
+            <p className="font-bold text-gray-900 text-sm font-space">{formatVolume(crypto.total_volume)}</p>
           </div>
         </div>
       </div>

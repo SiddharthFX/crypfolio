@@ -83,15 +83,15 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Hero Section */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center px-3 py-1.5 bg-teal-100 text-teal-700 rounded-full text-xs font-medium mb-4 border border-teal-200">
-            <TrendingUp className="h-3 w-3 mr-1.5" />
-            Live Market Data • Real-time Updates
+          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 rounded-full text-sm font-semibold mb-6 border border-teal-200/50 shadow-lg shadow-teal-500/10">
+            <TrendingUp className="h-4 w-4 mr-2" />
+            Live Market Intelligence • Real-time Analytics
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-poppins bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent mb-3 leading-tight">
-            Cryptocurrency Portfolio Calculator
+          <h2 className="text-4xl md:text-5xl font-bold font-space bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4 leading-tight tracking-tight">
+            Professional Portfolio Analytics
           </h2>
-          <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            Track live cryptocurrency prices and calculate your portfolio value with real-time market data from the top 100 cryptocurrencies
+          <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+            Advanced cryptocurrency portfolio management with real-time market intelligence from the top 100 digital assets
           </p>
         </div>
 
@@ -101,27 +101,27 @@ function App() {
             <div className="flex items-center">
               <button
                 onClick={() => setActiveTab('market')}
-                className={`flex items-center justify-center space-x-3 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 min-w-[160px] ${
+                className={`flex items-center justify-center space-x-3 px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 min-w-[180px] font-space ${
                   activeTab === 'market'
                     ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg shadow-teal-500/30 transform scale-105'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80'
                 }`}
               >
-                <BarChart3 className="h-4 w-4" />
-                <span>Market Data</span>
+                <BarChart3 className="h-5 w-5" />
+                <span>Market Intelligence</span>
               </button>
               <button
                 onClick={() => setActiveTab('portfolio')}
-                className={`flex items-center justify-center space-x-3 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 min-w-[160px] relative ${
+                className={`flex items-center justify-center space-x-3 px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 min-w-[180px] relative font-space ${
                   activeTab === 'portfolio'
                     ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg shadow-teal-500/30 transform scale-105'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80'
                 }`}
               >
-                <Calculator className="h-4 w-4" />
-                <span>Portfolio Calculator</span>
+                <Calculator className="h-5 w-5" />
+                <span>Portfolio Analytics</span>
                 {portfolio.holdings.length > 0 && (
-                  <span className={`absolute -top-1 -right-1 min-w-[20px] h-5 flex items-center justify-center text-xs px-1.5 py-0.5 rounded-full border font-bold ${
+                  <span className={`absolute -top-1 -right-1 min-w-[22px] h-6 flex items-center justify-center text-xs px-2 py-0.5 rounded-full border font-bold ${
                     activeTab === 'portfolio' 
                       ? 'bg-white/20 text-white border-white/30' 
                       : 'bg-teal-100 text-teal-600 border-teal-200'
@@ -169,8 +169,8 @@ function App() {
                   <div className="bg-white/90 backdrop-blur-xl rounded-xl p-4 border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
-                        <p className="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider">Market Cap</p>
-                        <p className="text-xl font-bold text-gray-900 font-poppins mb-1">
+                        <p className="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider font-space">Market Cap</p>
+                        <p className="text-xl font-bold text-gray-900 font-space mb-1">
                           ${(marketStats.totalMarketCap / 1e12).toFixed(2)}T
                         </p>
                         <p className="text-xs text-gray-600">Top 100 cryptos</p>
@@ -184,8 +184,8 @@ function App() {
                   <div className="bg-white/90 backdrop-blur-xl rounded-xl p-4 border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
-                        <p className="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider">Avg 24h</p>
-                        <p className={`text-xl font-bold font-poppins mb-1 ${marketStats.avgChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                        <p className="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider font-space">Avg 24h</p>
+                        <p className={`text-xl font-bold font-space mb-1 ${marketStats.avgChange >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                           {marketStats.avgChange >= 0 ? '+' : ''}{marketStats.avgChange.toFixed(2)}%
                         </p>
                         <p className="text-xs text-gray-600">Market sentiment</p>
@@ -199,8 +199,8 @@ function App() {
                   <div className="bg-white/90 backdrop-blur-xl rounded-xl p-4 border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
-                        <p className="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider">Gainers</p>
-                        <p className="text-xl font-bold text-green-600 font-poppins mb-1">{marketStats.gainers}</p>
+                        <p className="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider font-space">Gainers</p>
+                        <p className="text-xl font-bold text-green-600 font-space mb-1">{marketStats.gainers}</p>
                         <p className="text-xs text-gray-600">Positive</p>
                       </div>
                       <div className="p-2 bg-green-100 rounded-lg border border-green-200/50">
@@ -212,8 +212,8 @@ function App() {
                   <div className="bg-white/90 backdrop-blur-xl rounded-xl p-4 border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
-                        <p className="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider">Losers</p>
-                        <p className="text-xl font-bold text-red-600 font-poppins mb-1">{marketStats.losers}</p>
+                        <p className="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wider font-space">Losers</p>
+                        <p className="text-xl font-bold text-red-600 font-space mb-1">{marketStats.losers}</p>
                         <p className="text-xs text-gray-600">Negative</p>
                       </div>
                       <div className="p-2 bg-red-100 rounded-lg border border-red-200/50">
@@ -240,7 +240,7 @@ function App() {
                   <>
                     <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 gap-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900 font-poppins mb-1">Live Market Data</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 font-space mb-1">Live Market Intelligence</h3>
                         <p className="text-gray-600 text-sm">
                           Showing {filteredCryptos.length} of top 100 cryptocurrency{filteredCryptos.length !== 1 ? 'ies' : 'y'}
                         </p>
@@ -248,7 +248,7 @@ function App() {
                       <button
                         onClick={refetch}
                         disabled={refreshing}
-                        className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-xl border border-gray-300/50 text-xs font-semibold rounded-lg text-gray-700 hover:bg-white hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all duration-200 disabled:opacity-50 shadow-lg"
+                        className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-xl border border-gray-300/50 text-xs font-semibold rounded-lg text-gray-700 hover:bg-white hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all duration-200 disabled:opacity-50 shadow-lg font-space"
                       >
                         <RefreshCw className={`h-3 w-3 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
                         {refreshing ? 'Refreshing...' : 'Refresh Data'}
@@ -276,7 +276,7 @@ function App() {
                 
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 gap-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 font-poppins mb-1">Portfolio Calculator</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 font-space mb-1">Portfolio Analytics</h3>
                     <p className="text-gray-600 text-sm">
                       {portfolio.holdings.length === 0 
                         ? 'Add your cryptocurrency holdings to calculate portfolio value' 
@@ -291,7 +291,7 @@ function App() {
                     <div className="flex gap-3">
                       <button
                         onClick={() => setShowAddModal(true)}
-                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white text-xs font-semibold rounded-lg hover:from-teal-600 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all duration-200 shadow-lg shadow-teal-500/25 hover:shadow-xl transform hover:scale-105"
+                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white text-xs font-semibold rounded-lg hover:from-teal-600 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all duration-200 shadow-lg shadow-teal-500/25 hover:shadow-xl transform hover:scale-105 font-space"
                       >
                         <Plus className="h-3 w-3 mr-2" />
                         Add Holding
@@ -299,7 +299,7 @@ function App() {
                       <button
                         onClick={refetch}
                         disabled={refreshing}
-                        className="inline-flex items-center px-3 py-2 bg-white/90 backdrop-blur-xl border border-gray-300/50 text-xs font-semibold rounded-lg text-gray-700 hover:bg-white hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all duration-200 disabled:opacity-50 shadow-lg"
+                        className="inline-flex items-center px-3 py-2 bg-white/90 backdrop-blur-xl border border-gray-300/50 text-xs font-semibold rounded-lg text-gray-700 hover:bg-white hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all duration-200 disabled:opacity-50 shadow-lg font-space"
                       >
                         <RefreshCw className={`h-3 w-3 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
                         {refreshing ? 'Refreshing...' : 'Refresh'}
@@ -314,13 +314,13 @@ function App() {
                       <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-teal-500/25">
                         <Calculator className="h-8 w-8 text-white" />
                       </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3 font-poppins">Start Calculating</h3>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3 font-space">Start Your Analysis</h3>
                       <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-                        Add your cryptocurrency holdings to calculate real-time portfolio value, track performance, and monitor your investments.
+                        Add your cryptocurrency holdings to unlock professional portfolio analytics, performance tracking, and investment insights.
                       </p>
                       <button
                         onClick={() => setShowAddModal(true)}
-                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-lg hover:from-teal-600 hover:to-cyan-600 transition-all duration-200 shadow-lg shadow-teal-500/25 transform hover:scale-105"
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-lg hover:from-teal-600 hover:to-cyan-600 transition-all duration-200 shadow-lg shadow-teal-500/25 transform hover:scale-105 font-space"
                       >
                         <Plus className="h-4 w-4 mr-2" />
                         Add Your First Holding
