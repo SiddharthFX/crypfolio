@@ -95,33 +95,33 @@ function App() {
           </p>
         </div>
 
-        {/* Tab Navigation - More Compact */}
+        {/* Tab Navigation - Ultra Compact & Modern */}
         <div className="flex justify-center mb-6">
-          <div className="bg-white/95 backdrop-blur-xl rounded-xl p-1.5 border border-gray-200/60 shadow-lg">
+          <div className="bg-white/95 backdrop-blur-xl rounded-lg p-1 border border-gray-200/60 shadow-md">
             <div className="flex items-center">
               <button
                 onClick={() => setActiveTab('market')}
-                className={`flex items-center justify-center space-x-2.5 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 min-w-[160px] font-space ${
+                className={`flex items-center justify-center space-x-2 px-4 py-2 rounded-md font-semibold text-xs transition-all duration-300 min-w-[120px] font-space ${
                   activeTab === 'market'
-                    ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-md shadow-teal-500/25 transform scale-105'
+                    ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-sm transform scale-105'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80'
                 }`}
               >
-                <BarChart3 className="h-4 w-4" />
-                <span>Market Intelligence</span>
+                <BarChart3 className="h-3.5 w-3.5" />
+                <span>Market</span>
               </button>
               <button
                 onClick={() => setActiveTab('portfolio')}
-                className={`flex items-center justify-center space-x-2.5 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 min-w-[160px] relative font-space ${
+                className={`flex items-center justify-center space-x-2 px-4 py-2 rounded-md font-semibold text-xs transition-all duration-300 min-w-[120px] relative font-space ${
                   activeTab === 'portfolio'
-                    ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-md shadow-teal-500/25 transform scale-105'
+                    ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-sm transform scale-105'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80'
                 }`}
               >
-                <Calculator className="h-4 w-4" />
-                <span>Portfolio Analytics</span>
+                <Calculator className="h-3.5 w-3.5" />
+                <span>Portfolio</span>
                 {portfolio.holdings.length > 0 && (
-                  <span className={`absolute -top-1 -right-1 min-w-[18px] h-5 flex items-center justify-center text-xs px-1.5 py-0.5 rounded-full border font-bold ${
+                  <span className={`absolute -top-0.5 -right-0.5 min-w-[16px] h-4 flex items-center justify-center text-[10px] px-1 py-0.5 rounded-full border font-bold ${
                     activeTab === 'portfolio' 
                       ? 'bg-white/20 text-white border-white/30' 
                       : 'bg-teal-100 text-teal-600 border-teal-200'
