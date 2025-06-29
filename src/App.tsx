@@ -77,17 +77,17 @@ function App() {
   }, [cryptos]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 text-gray-900 font-inter">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-teal-50/30 to-cyan-50/30 text-gray-900 font-inter">
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Hero Section */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center px-3 py-1.5 bg-blue-100 text-blue-700 rounded-full text-xs font-medium mb-4 border border-blue-200">
+          <div className="inline-flex items-center px-3 py-1.5 bg-teal-100 text-teal-700 rounded-full text-xs font-medium mb-4 border border-teal-200">
             <TrendingUp className="h-3 w-3 mr-1.5" />
             Live Market Data • Real-time Updates
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-poppins bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-3 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold font-poppins bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent mb-3 leading-tight">
             Cryptocurrency Portfolio Calculator
           </h2>
           <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
@@ -103,7 +103,7 @@ function App() {
                 onClick={() => setActiveTab('market')}
                 className={`flex items-center justify-center space-x-3 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 min-w-[160px] ${
                   activeTab === 'market'
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30 transform scale-105'
+                    ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg shadow-teal-500/30 transform scale-105'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80'
                 }`}
               >
@@ -114,7 +114,7 @@ function App() {
                 onClick={() => setActiveTab('portfolio')}
                 className={`flex items-center justify-center space-x-3 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 min-w-[160px] relative ${
                   activeTab === 'portfolio'
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30 transform scale-105'
+                    ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg shadow-teal-500/30 transform scale-105'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80'
                 }`}
               >
@@ -124,7 +124,7 @@ function App() {
                   <span className={`absolute -top-1 -right-1 min-w-[20px] h-5 flex items-center justify-center text-xs px-1.5 py-0.5 rounded-full border font-bold ${
                     activeTab === 'portfolio' 
                       ? 'bg-white/20 text-white border-white/30' 
-                      : 'bg-blue-100 text-blue-600 border-blue-200'
+                      : 'bg-teal-100 text-teal-600 border-teal-200'
                   }`}>
                     {portfolio.holdings.length}
                   </span>
@@ -175,8 +175,8 @@ function App() {
                         </p>
                         <p className="text-xs text-gray-600">Top 100 cryptos</p>
                       </div>
-                      <div className="p-2 bg-blue-100 rounded-lg border border-blue-200/50">
-                        <TrendingUp className="h-4 w-4 text-blue-600" />
+                      <div className="p-2 bg-teal-100 rounded-lg border border-teal-200/50">
+                        <TrendingUp className="h-4 w-4 text-teal-600" />
                       </div>
                     </div>
                   </div>
@@ -248,7 +248,7 @@ function App() {
                       <button
                         onClick={refetch}
                         disabled={refreshing}
-                        className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-xl border border-gray-300/50 text-xs font-semibold rounded-lg text-gray-700 hover:bg-white hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-200 disabled:opacity-50 shadow-lg"
+                        className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-xl border border-gray-300/50 text-xs font-semibold rounded-lg text-gray-700 hover:bg-white hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all duration-200 disabled:opacity-50 shadow-lg"
                       >
                         <RefreshCw className={`h-3 w-3 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
                         {refreshing ? 'Refreshing...' : 'Refresh Data'}
@@ -291,7 +291,7 @@ function App() {
                     <div className="flex gap-3">
                       <button
                         onClick={() => setShowAddModal(true)}
-                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-200 shadow-lg shadow-blue-500/25 hover:shadow-xl transform hover:scale-105"
+                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white text-xs font-semibold rounded-lg hover:from-teal-600 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all duration-200 shadow-lg shadow-teal-500/25 hover:shadow-xl transform hover:scale-105"
                       >
                         <Plus className="h-3 w-3 mr-2" />
                         Add Holding
@@ -299,7 +299,7 @@ function App() {
                       <button
                         onClick={refetch}
                         disabled={refreshing}
-                        className="inline-flex items-center px-3 py-2 bg-white/90 backdrop-blur-xl border border-gray-300/50 text-xs font-semibold rounded-lg text-gray-700 hover:bg-white hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-200 disabled:opacity-50 shadow-lg"
+                        className="inline-flex items-center px-3 py-2 bg-white/90 backdrop-blur-xl border border-gray-300/50 text-xs font-semibold rounded-lg text-gray-700 hover:bg-white hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-teal-500/50 transition-all duration-200 disabled:opacity-50 shadow-lg"
                       >
                         <RefreshCw className={`h-3 w-3 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
                         {refreshing ? 'Refreshing...' : 'Refresh'}
@@ -311,7 +311,7 @@ function App() {
                 {portfolio.holdings.length === 0 ? (
                   <div className="text-center py-12">
                     <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-8 border border-gray-200/50 max-w-lg mx-auto shadow-lg">
-                      <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/25">
+                      <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-teal-500/25">
                         <Calculator className="h-8 w-8 text-white" />
                       </div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-3 font-poppins">Start Calculating</h3>
@@ -320,7 +320,7 @@ function App() {
                       </p>
                       <button
                         onClick={() => setShowAddModal(true)}
-                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg shadow-blue-500/25 transform hover:scale-105"
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold rounded-lg hover:from-teal-600 hover:to-cyan-600 transition-all duration-200 shadow-lg shadow-teal-500/25 transform hover:scale-105"
                       >
                         <Plus className="h-4 w-4 mr-2" />
                         Add Your First Holding

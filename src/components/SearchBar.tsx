@@ -18,7 +18,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearchChange }) => 
           placeholder="Search cryptocurrencies by name or symbol..."
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="block w-full pl-12 pr-4 py-3 bg-white/90 backdrop-blur-xl border border-gray-300/50 rounded-xl leading-5 placeholder-gray-400 text-gray-900 focus:outline-none focus:placeholder-gray-500 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-200 text-sm shadow-lg hover:shadow-xl font-medium"
+          className="block w-full pl-12 pr-4 py-3 bg-white/90 backdrop-blur-xl border border-gray-300/50 rounded-xl leading-5 placeholder-gray-400 text-gray-900 focus:outline-none focus:placeholder-gray-500 focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all duration-200 text-sm shadow-lg hover:shadow-xl font-medium"
         />
       </div>
     </div>

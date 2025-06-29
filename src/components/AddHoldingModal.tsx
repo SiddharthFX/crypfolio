@@ -45,7 +45,7 @@ const AddHoldingModal: React.FC<AddHoldingModalProps> = ({ isOpen, onClose, onAd
       <div className="bg-white border border-gray-200 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div className="flex items-center space-x-3">
-            <Calculator className="h-6 w-6 text-blue-600" />
+            <Calculator className="h-6 w-6 text-teal-600" />
             <h2 className="text-xl font-semibold text-gray-900 font-poppins">Add Holding</h2>
           </div>
           <button
@@ -66,7 +66,7 @@ const AddHoldingModal: React.FC<AddHoldingModalProps> = ({ isOpen, onClose, onAd
               placeholder="Search by name or symbol..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-200"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all duration-200"
             />
           </div>
 
@@ -94,13 +94,13 @@ const AddHoldingModal: React.FC<AddHoldingModalProps> = ({ isOpen, onClose, onAd
           )}
 
           {selectedCryptoData && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div className="bg-teal-50 border border-teal-200 rounded-lg p-4">
               <div className="flex items-center space-x-3">
                 <img src={selectedCryptoData.image} alt={selectedCryptoData.name} className="w-10 h-10 rounded-full" />
                 <div>
                   <div className="font-medium text-gray-900 font-poppins">{selectedCryptoData.name}</div>
                   <div className="text-sm text-gray-700">
-                    Current Price: <span className="text-blue-600 font-semibold">${selectedCryptoData.current_price.toLocaleString()}</span>
+                    Current Price: <span className="text-teal-600 font-semibold">${selectedCryptoData.current_price.toLocaleString()}</span>
                   </div>
                 </div>
               </div>
@@ -117,7 +117,7 @@ const AddHoldingModal: React.FC<AddHoldingModalProps> = ({ isOpen, onClose, onAd
               placeholder="0.00"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-200"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all duration-200"
               required
             />
           </div>
@@ -132,7 +132,7 @@ const AddHoldingModal: React.FC<AddHoldingModalProps> = ({ isOpen, onClose, onAd
               placeholder="0.00"
               value={purchasePrice}
               onChange={(e) => setPurchasePrice(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-200"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all duration-200"
               required
             />
           </div>
@@ -177,7 +177,7 @@ const AddHoldingModal: React.FC<AddHoldingModalProps> = ({ isOpen, onClose, onAd
             <button
               type="submit"
               disabled={!selectedCrypto || !amount || !purchasePrice}
-              className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-blue-500/25"
+              className="flex-1 px-4 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-lg hover:from-teal-600 hover:to-cyan-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-teal-500/25"
             >
               <Plus className="h-4 w-4" />
               <span>Add Holding</span>

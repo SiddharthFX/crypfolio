@@ -59,7 +59,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ holding, onEdit, onDelete
           <div className="flex space-x-1">
             <button
               onClick={onEdit}
-              className="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 border border-transparent hover:border-blue-200"
+              className="p-1.5 text-gray-400 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-all duration-200 border border-transparent hover:border-teal-200"
             >
               <Edit className="h-3 w-3" />
             </button>
@@ -95,7 +95,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ holding, onEdit, onDelete
           </div>
         </div>
 
-        <div className="text-center py-3 bg-gradient-to-r from-gray-50/80 to-blue-50/30 rounded-lg border border-gray-100">
+        <div className="text-center py-3 bg-gradient-to-r from-gray-50/80 to-teal-50/30 rounded-lg border border-gray-100">
           <p className="text-xs text-gray-500 mb-1 font-medium">Current Price</p>
           <p className="text-xl font-bold text-gray-900 font-poppins">{formatPrice(holding.current_price)}</p>
         </div>

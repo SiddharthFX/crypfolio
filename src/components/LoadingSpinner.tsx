@@ -16,9 +16,9 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ size = 'lg', overlay = 
     <div className="flex items-center justify-center">
       <div className="relative">
         <div className={`animate-spin rounded-full border-3 border-gray-200 ${sizeClasses[size]}`}></div>
-        <div className={`animate-spin rounded-full border-3 border-blue-500 border-t-transparent absolute top-0 left-0 ${sizeClasses[size]}`}></div>
+        <div className={`animate-spin rounded-full border-3 border-teal-500 border-t-transparent absolute top-0 left-0 ${sizeClasses[size]}`}></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className={`bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-pulse ${
+          <div className={`bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full animate-pulse ${
             size === 'sm' ? 'w-2 h-2' : size === 'md' ? 'w-3 h-3' : 'w-4 h-4'
           }`}></div>
         </div>

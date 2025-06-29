@@ -29,7 +29,7 @@ const SortControls: React.FC<SortControlsProps> = ({ sortBy, onSortChange }) => 
               onClick={() => onSortChange(option.value)}
               className={`flex items-center space-x-1 px-2 py-1 rounded-md text-xs font-medium transition-all duration-200 ${
                 sortBy === option.value
-                  ? 'bg-blue-600 text-white shadow-sm'
+                  ? 'bg-teal-600 text-white shadow-sm'
                   : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
               }`}
             >

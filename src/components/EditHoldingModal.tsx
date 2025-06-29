@@ -39,7 +39,7 @@ const EditHoldingModal: React.FC<EditHoldingModalProps> = ({ isOpen, onClose, on
       <div className="bg-white border border-gray-200 rounded-2xl shadow-2xl max-w-md w-full">
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div className="flex items-center space-x-3">
-            <Calculator className="h-6 w-6 text-blue-600" />
+            <Calculator className="h-6 w-6 text-teal-600" />
             <h2 className="text-xl font-semibold text-gray-900 font-poppins">Edit Holding</h2>
           </div>
           <button
@@ -70,7 +70,7 @@ const EditHoldingModal: React.FC<EditHoldingModalProps> = ({ isOpen, onClose, on
               step="any"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-200"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all duration-200"
               required
             />
           </div>
@@ -84,7 +84,7 @@ const EditHoldingModal: React.FC<EditHoldingModalProps> = ({ isOpen, onClose, on
               step="any"
               value={purchasePrice}
               onChange={(e) => setPurchasePrice(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-200"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500/50 transition-all duration-200"
               required
             />
           </div>
@@ -99,7 +99,7 @@ const EditHoldingModal: React.FC<EditHoldingModalProps> = ({ isOpen, onClose, on
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-blue-500/25"
+              className="flex-1 px-4 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-lg hover:from-teal-600 hover:to-cyan-600 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-teal-500/25"
             >
               <Save className="h-4 w-4" />
               <span>Save Changes</span>

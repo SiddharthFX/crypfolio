@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #e6fffa 50%, #e0f7fa 100%);
   color: #1e293b;
   margin: 0;
   padding: 0;
@@ -35,12 +35,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  background: linear-gradient(135deg, #0d9488, #0891b2);
 }
 
 /* Smooth animations */
@@ -52,7 +52,7 @@ body {
 button:focus,
 input:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
 }
 
 /* Glass morphism effect */

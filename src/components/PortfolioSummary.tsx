@@ -31,8 +31,8 @@ const PortfolioSummary: React.FC<PortfolioSummaryProps> = ({ portfolio }) => {
     value: holding.value,
     percentage: ((holding.value / portfolio.totalValue) * 100).toFixed(1),
     color: [
-      '#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', 
-      '#EF4444', '#6366F1', '#EC4899', '#14B8A6'
+      '#14B8A6', '#06B6D4', '#10B981', '#F59E0B', 
+      '#EF4444', '#6366F1', '#EC4899', '#8B5CF6'
     ][index % 8]
   }));
 
@@ -53,14 +53,14 @@ const PortfolioSummary: React.FC<PortfolioSummaryProps> = ({ portfolio }) => {
   return (
     <div className="mb-8">
       {/* Main Portfolio Overview */}
-      <div className="bg-gradient-to-br from-white via-blue-50/50 to-purple-50/50 rounded-2xl border border-gray-200 p-6 mb-6 relative overflow-hidden shadow-lg">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full -translate-y-16 translate-x-16"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-500/5 rounded-full translate-y-12 -translate-x-12"></div>
+      <div className="bg-gradient-to-br from-white via-teal-50/50 to-cyan-50/50 rounded-2xl border border-gray-200 p-6 mb-6 relative overflow-hidden shadow-lg">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full -translate-y-16 translate-x-16"></div>
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-cyan-500/5 rounded-full translate-y-12 -translate-x-12"></div>
         
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg shadow-blue-500/25">
+              <div className="p-2 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl shadow-lg shadow-teal-500/25">
                 <Wallet className="h-5 w-5 text-white" />
               </div>
               <div>
@@ -77,7 +77,7 @@ const PortfolioSummary: React.FC<PortfolioSummaryProps> = ({ portfolio }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
               <div className="flex items-center space-x-2 mb-2">
-                <DollarSign className="h-4 w-4 text-blue-600" />
+                <DollarSign className="h-4 w-4 text-teal-600" />
                 <span className="text-gray-700 font-medium text-sm">Portfolio Value</span>
               </div>
               <p className="text-2xl font-bold text-gray-900 mb-1 font-poppins">{formatPrice(portfolio.totalValue)}</p>
@@ -121,15 +121,15 @@ const PortfolioSummary: React.FC<PortfolioSummaryProps> = ({ portfolio }) => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 p-4 shadow-lg">
           <div className="flex items-center space-x-2 mb-4">
-            <PieChart className="h-4 w-4 text-blue-600" />
+            <PieChart className="h-4 w-4 text-teal-600" />
             <h3 className="text-lg font-bold text-gray-900 font-poppins">Portfolio Allocation</h3>
           </div>
           <div className="space-y-3">
             {portfolio.holdings.map((holding, index) => {
               const percentage = (holding.value / portfolio.totalValue) * 100;
               const colors = [
-                'bg-blue-500', 'bg-purple-500', 'bg-green-500', 'bg-yellow-500', 
-                'bg-red-500', 'bg-indigo-500', 'bg-pink-500', 'bg-teal-500'
+                'bg-teal-500', 'bg-cyan-500', 'bg-green-500', 'bg-yellow-500', 
+                'bg-red-500', 'bg-indigo-500', 'bg-pink-500', 'bg-purple-500'
               ];
               return (
                 <div key={holding.id} className="flex items-center space-x-3">
