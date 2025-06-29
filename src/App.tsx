@@ -80,48 +80,48 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-teal-50/30 to-cyan-50/30 text-gray-900 font-inter">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {/* Hero Section */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 rounded-full text-sm font-semibold mb-6 border border-teal-200/50 shadow-lg shadow-teal-500/10">
-            <TrendingUp className="h-4 w-4 mr-2" />
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        {/* Hero Section - More Compact */}
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-700 rounded-full text-xs font-semibold mb-4 border border-teal-200/50 shadow-sm">
+            <TrendingUp className="h-3 w-3 mr-1.5" />
             Live Market Intelligence • Real-time Analytics
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-space bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent mb-4 leading-tight tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold font-space bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent mb-3 leading-tight tracking-tight">
             Professional Portfolio Analytics
           </h2>
-          <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-medium">
             Advanced cryptocurrency portfolio management with real-time market intelligence from the top 100 digital assets
           </p>
         </div>
 
-        {/* Tab Navigation - Perfectly Aligned */}
-        <div className="flex justify-center mb-8">
-          <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-2 border border-gray-200/60 shadow-xl shadow-gray-900/10">
+        {/* Tab Navigation - More Compact */}
+        <div className="flex justify-center mb-6">
+          <div className="bg-white/95 backdrop-blur-xl rounded-xl p-1.5 border border-gray-200/60 shadow-lg">
             <div className="flex items-center">
               <button
                 onClick={() => setActiveTab('market')}
-                className={`flex items-center justify-center space-x-3 px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 min-w-[180px] font-space ${
+                className={`flex items-center justify-center space-x-2.5 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 min-w-[160px] font-space ${
                   activeTab === 'market'
-                    ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg shadow-teal-500/30 transform scale-105'
+                    ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-md shadow-teal-500/25 transform scale-105'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80'
                 }`}
               >
-                <BarChart3 className="h-5 w-5" />
+                <BarChart3 className="h-4 w-4" />
                 <span>Market Intelligence</span>
               </button>
               <button
                 onClick={() => setActiveTab('portfolio')}
-                className={`flex items-center justify-center space-x-3 px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 min-w-[180px] relative font-space ${
+                className={`flex items-center justify-center space-x-2.5 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 min-w-[160px] relative font-space ${
                   activeTab === 'portfolio'
-                    ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg shadow-teal-500/30 transform scale-105'
+                    ? 'bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-md shadow-teal-500/25 transform scale-105'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80'
                 }`}
               >
-                <Calculator className="h-5 w-5" />
+                <Calculator className="h-4 w-4" />
                 <span>Portfolio Analytics</span>
                 {portfolio.holdings.length > 0 && (
-                  <span className={`absolute -top-1 -right-1 min-w-[22px] h-6 flex items-center justify-center text-xs px-2 py-0.5 rounded-full border font-bold ${
+                  <span className={`absolute -top-1 -right-1 min-w-[18px] h-5 flex items-center justify-center text-xs px-1.5 py-0.5 rounded-full border font-bold ${
                     activeTab === 'portfolio' 
                       ? 'bg-white/20 text-white border-white/30' 
                       : 'bg-teal-100 text-teal-600 border-teal-200'
@@ -160,7 +160,7 @@ function App() {
             {activeTab === 'market' ? (
               <>
                 {/* Market Overview Stats */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 relative">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6 relative">
                   {refreshing && (
                     <div className="absolute inset-0 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center z-10">
                       <LoadingSpinner size="sm" />
