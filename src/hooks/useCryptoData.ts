@@ -15,7 +15,7 @@ export const useCryptoData = () => {
       setError(null);
 
       const response = await fetch(
-        `${API_URL}?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false&price_change_percentage=24h`,
+        `${API_URL}?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h`,
         {
           headers: {
             'X-CG-Demo-API-Key': API_KEY,

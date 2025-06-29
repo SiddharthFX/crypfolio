@@ -91,7 +91,7 @@ function App() {
             Cryptocurrency Portfolio Calculator
           </h2>
           <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            Track live cryptocurrency prices and calculate your portfolio value with real-time market data from the top 20 cryptocurrencies
+            Track live cryptocurrency prices and calculate your portfolio value with real-time market data from the top 100 cryptocurrencies
           </p>
         </div>
 
@@ -168,7 +168,7 @@ function App() {
                         <p className="text-xl font-bold text-gray-900 font-poppins mb-1">
                           ${(marketStats.totalMarketCap / 1e12).toFixed(2)}T
                         </p>
-                        <p className="text-xs text-gray-600">Top 20 cryptos</p>
+                        <p className="text-xs text-gray-600">Top 100 cryptos</p>
                       </div>
                       <div className="p-2 bg-blue-100 rounded-lg border border-blue-200/50">
                         <TrendingUp className="h-4 w-4 text-blue-600" />
@@ -237,7 +237,7 @@ function App() {
                       <div>
                         <h3 className="text-2xl font-bold text-gray-900 font-poppins mb-1">Live Market Data</h3>
                         <p className="text-gray-600 text-sm">
-                          Showing {filteredCryptos.length} of top 20 cryptocurrency{filteredCryptos.length !== 1 ? 'ies' : 'y'}
+                          Showing {filteredCryptos.length} of top 100 cryptocurrency{filteredCryptos.length !== 1 ? 'ies' : 'y'}
                         </p>
                       </div>
                       <button
