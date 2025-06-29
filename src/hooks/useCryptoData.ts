@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Cryptocurrency } from '../types/crypto';
 
 const API_KEY = 'CG-xeYiRJBxi27XnS4N3BRZhncE';
@@ -7,11 +7,18 @@ const API_URL = 'https://api.coingecko.com/api/v3/coins/markets';
 export const useCryptoData = () => {
   const [cryptos, setCryptos] = useState<Cryptocurrency[]>([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const isInitialLoad = useRef(true);
 
-  const fetchCryptoData = async () => {
+  const fetchCryptoData = async (isRefresh = false) => {
     try {
-      setLoading(true);
+      if (isInitialLoad.current) {
+        setLoading(true);
+      } else if (isRefresh) {
+        setRefreshing(true);
+      }
+      
       setError(null);
 
       const response = await fetch(
@@ -28,12 +35,20 @@ export const useCryptoData = () => {
       }
 
       const data = await response.json();
+      
+      // Add a small delay to prevent flickering on fast connections
+      if (!isInitialLoad.current) {
+        await new Promise(resolve => setTimeout(resolve, 300));
+      }
+      
       setCryptos(data);
+      isInitialLoad.current = false;
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch cryptocurrency data');
       console.error('Error fetching crypto data:', err);
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
   };
 
@@ -41,9 +56,15 @@ export const useCryptoData = () => {
     fetchCryptoData();
     
     // Refresh data every 30 seconds
-    const interval = setInterval(fetchCryptoData, 30000);
+    const interval = setInterval(() => fetchCryptoData(true), 30000);
     return () => clearInterval(interval);
   }, []);
 
-  return { cryptos, loading, error, refetch: fetchCryptoData };
+  return { 
+    cryptos, 
+    loading, 
+    refreshing,
+    error, 
+    refetch: () => fetchCryptoData(true) 
+  };
 };

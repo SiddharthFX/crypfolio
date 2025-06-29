@@ -17,7 +17,7 @@ import { UserHolding } from './types/crypto';
 type SortOption = 'value' | 'performance' | 'name' | 'amount';
 
 function App() {
-  const { cryptos, loading, error, refetch } = useCryptoData();
+  const { cryptos, loading, refreshing, error, refetch } = useCryptoData();
   const { portfolio, userHoldings, addHolding, updateHolding, removeHolding } = useUserPortfolio(cryptos);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState<'market' | 'portfolio'>('market');
@@ -160,7 +160,12 @@ function App() {
             {activeTab === 'market' ? (
               <>
                 {/* Market Overview Stats */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 relative">
+                  {refreshing && (
+                    <div className="absolute inset-0 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center z-10">
+                      <LoadingSpinner size="sm" />
+                    </div>
+                  )}
                   <div className="bg-white/90 backdrop-blur-xl rounded-xl p-4 border border-gray-200/50 hover:border-gray-300/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
@@ -242,18 +247,23 @@ function App() {
                       </div>
                       <button
                         onClick={refetch}
-                        disabled={loading}
+                        disabled={refreshing}
                         className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-xl border border-gray-300/50 text-xs font-semibold rounded-lg text-gray-700 hover:bg-white hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-200 disabled:opacity-50 shadow-lg"
                       >
-                        <RefreshCw className={`h-3 w-3 mr-2 ${loading ? 'animate-spin' : ''}`} />
-                        Refresh Data
+                        <RefreshCw className={`h-3 w-3 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
+                        {refreshing ? 'Refreshing...' : 'Refresh Data'}
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                      {filteredCryptos.map((crypto) => (
-                        <CryptoCard key={crypto.id} crypto={crypto} />
-                      ))}
+                    <div className="relative">
+                      {refreshing && (
+                        <LoadingSpinner overlay />
+                      )}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        {filteredCryptos.map((crypto) => (
+                          <CryptoCard key={crypto.id} crypto={crypto} />
+                        ))}
+                      </div>
                     </div>
                   </>
                 )}
@@ -288,11 +298,11 @@ function App() {
                       </button>
                       <button
                         onClick={refetch}
-                        disabled={loading}
+                        disabled={refreshing}
                         className="inline-flex items-center px-3 py-2 bg-white/90 backdrop-blur-xl border border-gray-300/50 text-xs font-semibold rounded-lg text-gray-700 hover:bg-white hover:border-gray-400/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-200 disabled:opacity-50 shadow-lg"
                       >
-                        <RefreshCw className={`h-3 w-3 mr-2 ${loading ? 'animate-spin' : ''}`} />
-                        Refresh
+                        <RefreshCw className={`h-3 w-3 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
+                        {refreshing ? 'Refreshing...' : 'Refresh'}
                       </button>
                     </div>
                   </div>
@@ -318,18 +328,23 @@ function App() {
                     </div>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                    {sortedPortfolioHoldings.map((holding) => {
-                      const userHolding = userHoldings.find(h => h.cryptoId === holding.id);
-                      return (
-                        <PortfolioCard 
-                          key={holding.id} 
-                          holding={holding}
-                          onEdit={() => userHolding && handleEditHolding(userHolding)}
-                          onDelete={() => userHolding && handleDeleteHolding(userHolding.id)}
-                        />
-                      );
-                    })}
+                  <div className="relative">
+                    {refreshing && (
+                      <LoadingSpinner overlay />
+                    )}
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                      {sortedPortfolioHoldings.map((holding) => {
+                        const userHolding = userHoldings.find(h => h.cryptoId === holding.id);
+                        return (
+                          <PortfolioCard 
+                            key={holding.id} 
+                            holding={holding}
+                            onEdit={() => userHolding && handleEditHolding(userHolding)}
+                            onDelete={() => userHolding && handleDeleteHolding(userHolding.id)}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
                 )}
               </>

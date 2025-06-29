@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Cryptocurrency } from '../types/crypto';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 
@@ -7,6 +7,9 @@ interface CryptoCardProps {
 }
 
 const CryptoCard: React.FC<CryptoCardProps> = ({ crypto }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -42,14 +45,32 @@ const CryptoCard: React.FC<CryptoCardProps> = ({ crypto }) => {
   return (
     <div className="bg-white/90 backdrop-blur-xl rounded-xl border border-gray-200/50 p-5 hover:border-gray-300/50 hover:bg-white transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-xl group">
       <div className="flex items-center space-x-4 mb-5">
-        <img
-          src={crypto.image}
-          alt={crypto.name}
-          className="w-12 h-12 rounded-full ring-2 ring-gray-100 group-hover:ring-gray-200 transition-all duration-300"
-          loading="lazy"
-        />
-        <div className="flex-1">
-          <h3 className="font-bold text-gray-900 text-base font-poppins leading-tight">{crypto.name}</h3>
+        <div className="relative w-12 h-12">
+          {!imageLoaded && !imageError && (
+            <div className="w-12 h-12 rounded-full bg-gray-200 animate-pulse ring-2 ring-gray-100"></div>
+          )}
+          {!imageError && (
+            <img
+              src={crypto.image}
+              alt={crypto.name}
+              className={`w-12 h-12 rounded-full ring-2 ring-gray-100 group-hover:ring-gray-200 transition-all duration-300 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0 absolute'
+              }`}
+              loading="lazy"
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setImageError(true)}
+            />
+          )}
+          {imageError && (
+            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center ring-2 ring-gray-100 group-hover:ring-gray-200 transition-all duration-300">
+              <span className="text-white font-bold text-sm">
+                {crypto.symbol.substring(0, 2).toUpperCase()}
+              </span>
+            </div>
+          )}
+        </div>
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-gray-900 text-base font-poppins leading-tight truncate">{crypto.name}</h3>
           <div className="flex items-center space-x-2 mt-1">
             <p className="text-gray-500 text-sm uppercase font-semibold tracking-wider">{crypto.symbol}</p>
             <span className="text-gray-300">•</span>
@@ -61,7 +82,7 @@ const CryptoCard: React.FC<CryptoCardProps> = ({ crypto }) => {
       <div className="space-y-4">
         <div className="text-center py-4 bg-gradient-to-r from-gray-50/80 to-blue-50/30 rounded-xl border border-gray-100">
           <p className="text-2xl font-bold text-gray-900 mb-2 font-poppins">{formatPrice(crypto.current_price)}</p>
-          <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-sm font-bold border ${
+          <div className={`inline-flex items-center px-3 py-1.5 rounded-full text-sm font-bold border transition-all duration-300 ${
             isPositive 
               ? 'bg-green-50 text-green-700 border-green-200' 
               : 'bg-red-50 text-red-700 border-red-200'
