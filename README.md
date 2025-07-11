@@ -12,7 +12,7 @@ Crypto Portfolio (Crypfolio) is a modern, privacy-friendly web app for tracking 
 - **Performance Charts:** Visualize your portfolio's growth and asset allocation.
 - **Search & Sort:** Quickly find and organize coins.
 - **Privacy First:** All data is stored locally and auto-deletes after 48 hours of inactivity.
-- **Mobile Friendly:** Fully responsive and installable as a PWA (planned).
+- **Mobile Friendly:** Fully responsive design.
 
 ---
 
@@ -23,19 +23,10 @@ flowchart TD
     B --> C[View Market Data]
     B --> D[View Portfolio]
     C --> E[Search/Sort Cryptos]
-    C --> F[Add to Watchlist]
     D --> G[Add/Edit/Remove Holdings]
     D --> H[View Portfolio Analytics]
     D --> I[View Performance Charts]
-    D --> J[Set Price Alerts]
-    D --> K[Export/Import Portfolio]
-    D --> L[Tax & Transaction Tracking]
-    D --> M[Change Currency]
-    D --> N[View News & Sentiment]
     D --> O[Settings]
-    B --> P[Sign In/Sync]
-    P --> D
-    P --> C
 ```
 
 ---
@@ -43,7 +34,7 @@ flowchart TD
 ## 🛠️ Getting Started
 1. **Clone the repo:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/SiddharthFX/crypfolio.git
    cd Crypto_Portfolio
    ```
 2. **Install dependencies:**
@@ -56,11 +47,6 @@ flowchart TD
    ```
 4. **Open in your browser:**
    Visit [http://localhost:5173](http://localhost:5173)
-
----
-
-## 💡 Contributing & Ideas
-Want to add a feature or found a bug? Open an issue or pull request! See the planned features above for inspiration.
 
 ---
 
