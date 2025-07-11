@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Portfolio, PortfolioHolding, Cryptocurrency, UserHolding } from '../types/crypto';
 
 const STORAGE_KEY = 'crypto-portfolio-holdings';
+const TIMESTAMP_KEY = 'crypto-portfolio-last-visit';
+const EXPIRY_HOURS = 48;
 
 export const useUserPortfolio = (cryptos: Cryptocurrency[]) => {
   const [userHoldings, setUserHoldings] = useState<UserHolding[]>([]);
@@ -12,21 +14,42 @@ export const useUserPortfolio = (cryptos: Cryptocurrency[]) => {
     totalProfitLossPercentage: 0,
   });
 
-  // Load holdings from localStorage on mount
+  // Check expiry and load holdings from localStorage on mount
   useEffect(() => {
-    const savedHoldings = localStorage.getItem(STORAGE_KEY);
-    if (savedHoldings) {
-      try {
-        setUserHoldings(JSON.parse(savedHoldings));
-      } catch (error) {
-        console.error('Error loading saved holdings:', error);
+    const lastVisit = localStorage.getItem(TIMESTAMP_KEY);
+    const now = Date.now();
+    let expired = false;
+    if (lastVisit) {
+      const diffHours = (now - parseInt(lastVisit, 10)) / (1000 * 60 * 60);
+      if (diffHours > EXPIRY_HOURS) {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(TIMESTAMP_KEY);
+        expired = true;
       }
+    }
+    if (!expired) {
+      const savedHoldings = localStorage.getItem(STORAGE_KEY);
+      if (savedHoldings) {
+        try {
+          setUserHoldings(JSON.parse(savedHoldings));
+        } catch (error) {
+          console.error('Error loading saved holdings:', error);
+        }
+      }
+      // Only update timestamp if data is still valid
+      localStorage.setItem(TIMESTAMP_KEY, now.toString());
     }
   }, []);
 
-  // Save holdings to localStorage whenever they change
+  // Save holdings and update timestamp to localStorage whenever they change
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(userHoldings));
+    if (userHoldings.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(userHoldings));
+      localStorage.setItem(TIMESTAMP_KEY, Date.now().toString());
+    } else {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(TIMESTAMP_KEY);
+    }
   }, [userHoldings]);
 
   // Calculate portfolio whenever cryptos or holdings change
